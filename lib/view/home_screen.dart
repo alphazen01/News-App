@@ -152,7 +152,18 @@ class _HomeScreenState extends State<HomeScreen> {
                             width: width*0.5,
                             child: InkWell(
                               onTap: (){
-                               Navigator.push(context, MaterialPageRoute(builder: (_)=>NewsDetailsScreen(id:snapshot.data!.articles![index])));
+                               Navigator.push(context, MaterialPageRoute(builder: (_)=>NewsDetailsScreen(
+                                newsImage: snapshot.data!.articles![index].urlToImage.toString(), 
+                                newsTitle: snapshot.data!.articles![index].title.toString(), 
+                                newsDate: snapshot.data!.articles![index].publishedAt.toString(),  
+                                author: snapshot.data!.articles![index].author.toString(), 
+                                description: snapshot.data!.articles![index].description.toString(), 
+                                content: snapshot.data!.articles![index].content.toString(),  
+                                source: snapshot.data!.articles![index].source!.name.toString(), 
+                                )
+                               
+                                )
+                                );
                               },
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(15),
@@ -263,12 +274,18 @@ class _HomeScreenState extends State<HomeScreen> {
                               padding: const EdgeInsets.only(bottom: 15),
                               child: InkWell(
                                 onTap: (){
-                            //        Navigator.push(context, 
-                            //  MaterialPageRoute(builder: (_){
+                            Navigator.push(context, MaterialPageRoute(builder: (_)=>NewsDetailsScreen(
+                                newsImage: snapshot.data!.articles![index].urlToImage.toString(), 
+                                newsTitle: snapshot.data!.articles![index].title.toString(), 
+                                newsDate: snapshot.data!.articles![index].publishedAt.toString(),  
+                                author: snapshot.data!.articles![index].author.toString(), 
+                                description: snapshot.data!.articles![index].description.toString(), 
+                                content: snapshot.data!.articles![index].content.toString(),  
+                                source: snapshot.data!.articles![index].source!.name.toString(), 
+                                )
                                
-                            //    return NewsDetailsScreen(id:newsViewModel.fetchCategoriesNewsApi(category)
-                            //  );
-                            //  }));
+                                )
+                                );
                                 },
                                 child: Row(
                                   children: [
